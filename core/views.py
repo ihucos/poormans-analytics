@@ -10,7 +10,9 @@ def increment(request):
     view, _  = core_models.Views.objects.get_or_create(date=today)
     view.counter = F('counter') + 1
     view.save(update_fields=["counter"])
-    return HttpResponse("")
+    resp = HttpResponse("")
+    resp['Content-Type'] = 'text/plain'
+    return resp
 
 def fetch(request):
     response = HttpResponse(content_type='text/csv')
