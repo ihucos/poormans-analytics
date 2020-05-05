@@ -10,9 +10,7 @@ def increment(request):
     view, _  = core_models.Views.objects.get_or_create(date=today)
     view.counter = F('counter') + 1
     view.save(update_fields=["counter"])
-    resp =  HttpResponse("")
-    resp[Access-Control-Allow-Origin:] = "*"
-    return resp
+    return HttpResponse("")
 
 def fetch(request):
     response = HttpResponse(content_type='text/csv')
