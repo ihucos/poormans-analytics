@@ -11,7 +11,7 @@ def increment(request):
     view.counter = F('counter') + 1
     view.save(update_fields=["counter"])
     resp = HttpResponse("")
-    resp['Content-Type'] = 'text/plain'
+    resp['Content-Type'] = 'text/css'
     return resp
 
 def fetch(request):
