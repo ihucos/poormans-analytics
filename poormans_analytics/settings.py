@@ -25,7 +25,7 @@ SECRET_KEY = 'o279uy9tjz81sb12z+c_=65s#)^a$@5^%bwqv&%!pa5@#0bvde'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["poormans-analytics.herokuapp.com"]
 
 
 # Application definition
@@ -119,3 +119,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+
+import django_heroku
+django_heroku.settings(locals())
