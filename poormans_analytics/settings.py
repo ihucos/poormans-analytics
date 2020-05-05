@@ -22,8 +22,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = 'o279uy9tjz81sb12z+c_=65s#)^a$@5^%bwqv&%!pa5@#0bvde'
 
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = not os.environ.get('DEBUG') == 'false'
 
 ALLOWED_HOSTS = ["poormans-analytics.herokuapp.com"]
 
