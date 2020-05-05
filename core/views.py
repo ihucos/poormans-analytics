@@ -3,9 +3,20 @@ from django.http import HttpResponse
 from django.db.models import F
 from core import models as core_models
 from django.utils import timezone
+import csv
 
 def increment(request):
     today = str(timezone.now().date())
-    view = core_models.Views.objects.get_or_create(date=today)
-    #view.count = F('count') + 1
-    #view.save(update_fields=["count"])
+    view, _  = core_models.Views.objects.get_or_create(date=today)
+    view.counter = F('counter') + 1
+    view.save(update_fields=["counter"])
+    return HttpResponse("")
+
+def fetch(request):
+    response = HttpResponse(content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="views.csv"'
+    writer = csv.writer(response)
+    for view in core_models.Views.objects.all():
+        writer.writerow([view.date, view.counter])
+
+    return response

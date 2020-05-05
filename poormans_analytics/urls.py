@@ -20,4 +20,5 @@ from core import views as core_views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('increment/', core_views.increment),
+    path('fetch/', core_views.fetch),
 ]
