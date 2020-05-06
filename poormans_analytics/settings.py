@@ -56,7 +56,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
 ]
 
-CORS_ORIGIN_WHITELIST = ["corona-aktuell.net"]
+CORS_ORIGIN_WHITELIST = ["https://corona-aktuell.net", "https://corona-aktuell.net"]
 
 ROOT_URLCONF = 'poormans_analytics.urls'
 

@@ -18,7 +18,7 @@ def fetch(request):
     response = HttpResponse(content_type='text/csv')
     response['Content-Disposition'] = 'attachment; filename="views.csv"'
     writer = csv.writer(response)
-    for view in core_models.Views.objects.all():
+    for view in core_models.Views.objects.all().order_by('-date'):
         writer.writerow([view.date, view.counter])
 
     return response
